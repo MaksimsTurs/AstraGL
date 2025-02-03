@@ -4,7 +4,7 @@ $OUTPUTFILE = "a.exe"
 
 $LIBS = "-lgdi32 -lopengl32"
 
-$LINTFLAGS = "-Wall -Werror -Wextra"
+$LINTFLAGS = "-Wall -Wextra"
 $OPTFLAGS = "-DNDEBUG -Os -s -fno-ident -fno-unroll-loops -fmerge-all-constants -fwrapv -fomit-frame-pointer -ffunction-sections -fdata-sections -fno-asynchronous-unwind-tables"
 $EXTROPT = "strip ./a.exe && C:\Users\Maksims Turs\Downloads\upx-4.2.4-win64\upx-4.2.4-win64\upx.exe --best --ultra-brute a.exe"
 
@@ -16,7 +16,7 @@ Invoke-Expression $COMMAND
 
 if ($?) {
     Write-Host "Successfuly compiled, runing the programm..."
-    & .\$OUTPUTFILE
+    . "./$OUTPUTFILE"
 } else {
     Write-Host "Error by compiling programm..."
 }

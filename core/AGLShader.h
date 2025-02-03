@@ -12,8 +12,8 @@ void AGL_shader_bind(AGL_UInt32 shader_id);
 void AGL_shader_undind();
 void AGL_shader_delete(AGL_UInt32 shader_id);
 
-// void UI_shader_set_uniform1f(AGL_UInt32 shader_id, AGL_CString uniform_name, AGL_Float16 uniform_value);
-// void UI_shader_set_uniform1i(AGL_UInt32 shader_id, AGL_CString uniform_name, AGL_UInt8 uniform_value);
-// void UI_shader_set_uniform2f(AGL_UInt32 shader_id, AGL_CString uniform_name, AGL_Float16 f1, AGL_Float16 f2);
-// void UI_shader_set_uniform3f(AGL_UInt32 shader_id, AGL_CString uniform_name, AGL_Float16 f1, AGL_Float16 f2, AGL_Float16 f3);
-// void UI_shader_set_uniform4f(AGL_UInt32 shader_id, AGL_CString uniform_name, AGL_Float16 f1, AGL_Float16 f2, AGL_Float16 f3, AGL_Float16 f4);
+void AGL_shader_set_uniform1f(AGL_UInt32 shader_id, AGL_CString uniform_name, AGL_Float16 uniform_value);
+void AGL_shader_set_uniform1i(AGL_UInt32 shader_id, AGL_CString uniform_name, AGL_UInt8 uniform_value);
+void AGL_shader_set_uniform2f(AGL_UInt32 shader_id, AGL_CString uniform_name, AGL_Float16 f1, AGL_Float16 f2);
+void AGL_shader_set_uniform3f(AGL_UInt32 shader_id, AGL_CString uniform_name, AGL_Float16 f1, AGL_Float16 f2, AGL_Float16 f3);
+void AGL_shader_set_uniform4f(AGL_UInt32 shader_id, AGL_CString uniform_name, AGL_Float16 f1, AGL_Float16 f2, AGL_Float16 f3, AGL_Float16 f4);

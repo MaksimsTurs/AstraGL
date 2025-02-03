@@ -1,21 +1,20 @@
 #pragma once
 
 #include <windows.h>
-
 #include <GL/gl.h>
 
-#define ASTRAGL_LOG_INFO    "INFO"
-#define ASTRAGL_LOG_ERROR   "ERROR"
-#define ASTRAGL_LOG_WARNING "WARNING"
+#define AGL_LOG_INFO    "INFO"
+#define AGL_LOG_ERROR   "ERROR"
+#define AGL_LOG_WARNING "WARNING"
 
-#define ASTRAGL_TRUE 1
-#define ASTRAGL_FALSE 0
+#define AGL_TRUE 1
+#define AGL_FALSE 0
 
-#ifndef UI_DEV_MODE
+#ifndef AGL_DEV_MODE
 	#include <stdio.h>
-	#define ASTRAGL_LOG(LEVEL, FORMAT, ...) printf("[" LEVEL "]: " FORMAT "\n", __VA_ARGS__)
+	#define AGL_LOG(LEVEL, FORMAT, ...) printf("[" LEVEL "]: " FORMAT "\n", __VA_ARGS__)
 #else
-	#define ASTRAGL_LOG(LEVEL, FORMAT, ...)
+	#define AGL_LOG(LEVEL, FORMAT, ...)
 #endif
 
 //Boolean
@@ -78,9 +77,11 @@ typedef struct AGL_Size {
 	AGL_Float16 scale;
 } UI_Size;
 
-void AGL_create_window(HWND* window, AGL_CString title, AGL_UInt16 width, AGL_UInt16 height);
-void AGL_create_context(HWND window);
+void AGL_window_create(HWND* window, AGL_CString title, AGL_UInt16 width, AGL_UInt16 height);
+void AGL_openGL_context_create(HWND window);
+
 void AGL_swap_buffer(HWND window);
+void AGL_swap_buffer_interval(AGL_UInt8 interval);
 void AGL_clear_buffer();
 
 AGL_Boolean AGL_event_loop(MSG event_message);

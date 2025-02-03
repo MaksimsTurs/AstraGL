@@ -4,19 +4,21 @@
 
 typedef struct AGL_VBuffer {
 	AGL_UInt32 id;
-	AGL_UInt16 size;
-	AGL_Float16* positions;
 } AGL_VBuffer;
+
+typedef struct AGL_VBuffer_Array {
+	AGL_UInt32 id;
+} AGL_VBuffer_Array;
 
 typedef struct AGL_IBuffer {
 	AGL_UInt32 id;
-	AGL_UInt16 size;
-	AGL_UInt16* data;	
+	AGL_UInt32 count;
 } AGL_IBuffer;
 
-void AGL_init_vbuffer(AGL_VBuffer* buffer, AGL_Float16* positions, AGL_UInt16 size, AGL_UInt8 verticies_size);
-// void UI_index_buffer_init(UI_IBuffer* buffer, UI_U16Int* data, UI_U16Int size);
+void AGL_vbuffer_create(AGL_VBuffer* buffer, AGL_Float16* positions, AGL_UInt16 size);
+void AGL_vbuffer_array_create(AGL_VBuffer_Array* buffer);
+void AGL_ibuffer_create(AGL_IBuffer* buffer, AGL_UInt16* data, AGL_Int16 size);
 
-// void UI_buffer_bind(UI_U16Int type, UI_U32Int id);
-// void UI_buffer_unbind(UI_U16Int type);
-// void UI_buffer_delete(UI_U32Int id);
+void AGL_buffer_bind(AGL_UInt16 type, AGL_UInt32 id);
+void AGL_buffer_unbind(AGL_UInt16 type);
+void AGL_buffer_delete(AGL_UInt32 id);
