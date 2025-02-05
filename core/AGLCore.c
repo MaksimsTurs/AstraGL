@@ -69,23 +69,17 @@ void AGL_openGL_context_create(HWND window) {
 	}
 }
 
-AGL_Boolean AGL_event_loop(MSG event_message) {
-	AGL_Boolean recieved_message = GetMessage(&event_message, NULL, 0, 0);
-	
-	TranslateMessage(&event_message);
-  DispatchMessage(&event_message);
+AGL_Boolean AGL_programm_loop(MSG event_message) {
+	AGL_Boolean is_running = 1;
 
-	return recieved_message;
-}
+	while(PeekMessage(&event_message, NULL, 0, 0, PM_REMOVE)) {
+		TranslateMessage(&event_message);
+		DispatchMessage(&event_message);
 
-void AGL_clear_buffer() {
-	glClear(GL_COLOR_BUFFER_BIT);
-}
+		if(event_message.message == WM_QUIT) {
+			is_running = 0;
+		}
+	}
 
-void AGL_swap_buffer(HWND window) {
-	SwapBuffers(GetDC(window));
-}
-
-void AGL_swap_buffer_interval(AGL_UInt8 interval) {
-	wglSwapIntervalEXT(interval);
+	return is_running;
 }

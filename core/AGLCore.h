@@ -1,6 +1,7 @@
 #pragma once
 
 #include <windows.h>
+#include <stdio.h>
 #include <GL/gl.h>
 
 #define AGL_LOG_INFO    "INFO"
@@ -11,7 +12,6 @@
 #define AGL_FALSE 0
 
 #ifndef AGL_DEV_MODE
-	#include <stdio.h>
 	#define AGL_LOG(LEVEL, FORMAT, ...) printf("[" LEVEL "]: " FORMAT "\n", __VA_ARGS__)
 #else
 	#define AGL_LOG(LEVEL, FORMAT, ...)
@@ -80,14 +80,10 @@ typedef struct AGL_Size {
 void AGL_window_create(HWND* window, AGL_CString title, AGL_UInt16 width, AGL_UInt16 height);
 void AGL_openGL_context_create(HWND window);
 
-void AGL_swap_buffer(HWND window);
-void AGL_swap_buffer_interval(AGL_UInt8 interval);
-void AGL_clear_buffer();
+AGL_Boolean AGL_programm_loop(MSG event_message);
 
-AGL_Boolean AGL_event_loop(MSG event_message);
-
-//Core functions
 #include "./AGLBinding.h"
 #include "./AGLBuffer.h"
+#include "./AGLRenderer.h"
 #include "./AGLShader.h"
-// #include "./UITexture.h"
+#include "./AGLTexture.h"

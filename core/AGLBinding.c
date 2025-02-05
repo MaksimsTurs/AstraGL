@@ -26,6 +26,7 @@ PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
 PFNGLGENVERTEXARRAYSPROC glGenVertexArrays;
 PFNGLBINDVERTEXARRAYPROC glBindVertexArray;
 PFNGLDELETEBUFFERSPROC glDeleteBuffers;
+PFNGLACTIVETEXTUREPROC glActiveTexture;
 
 void AGL_bind_openGL() {
 	glGenBuffers = (void*)wglGetProcAddress("glGenBuffers");
@@ -53,6 +54,7 @@ void AGL_bind_openGL() {
 	glGenVertexArrays = (void*)wglGetProcAddress("glGenVertexArrays");
 	glBindVertexArray = (void*)wglGetProcAddress("glBindVertexArray");
 	glDeleteBuffers = (void*)wglGetProcAddress("glDeleteBuffers");
+	glActiveTexture = (void*)wglGetProcAddress("glActiveTexture");
 
 	wglSwapIntervalEXT = (void*)wglGetProcAddress("wglSwapIntervalEXT");
 }

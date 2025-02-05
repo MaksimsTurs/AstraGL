@@ -1,1 +1,1 @@
-# AstraGL, OpenGL based C UI library
+# OpenGL based UI library in C (AstraGL)

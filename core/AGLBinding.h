@@ -9,6 +9,8 @@
 #define GL_FRAGMENT_SHADER 0x8B30
 #define GL_COMPILE_STATUS 0x8B81
 #define GL_INFO_LOG_LENGTH 0x8B84
+#define GL_TEXTURE0 0x84C0
+#define GL_CLAMP_TO_EDGE 0x812F
 
 typedef ptrdiff_t GLsizeiptr;
 typedef char GLchar;
@@ -35,6 +37,7 @@ typedef void (APIENTRY* PFNGLUNIFORM1IPROC) (GLint location, GLint v0);
 typedef void (APIENTRY* PFNGLGENVERTEXARRAYSPROC) (GLsizei n, GLuint* arrays);
 typedef void (APIENTRY* PFNGLBINDVERTEXARRAYPROC) (GLuint array);
 typedef void (APIENTRY* PFNGLDELETEBUFFERSPROC) (GLsizei n, const GLuint* buffers);
+typedef void (APIENTRY* PFNGLACTIVETEXTUREPROC) (GLenum texture);
 typedef GLuint (APIENTRY* PFNGLCREATEPROGRAMPROC) (void);
 typedef GLuint (APIENTRY* PFNGLCREATESHADERPROC) (GLenum type);
 typedef GLint (APIENTRY* PFNGLGETUNIFORMLOCATIONPROC) (GLuint program, const GLchar* name);
@@ -66,5 +69,6 @@ extern PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT;
 extern PFNGLGENVERTEXARRAYSPROC glGenVertexArrays;
 extern PFNGLBINDVERTEXARRAYPROC glBindVertexArray;
 extern PFNGLDELETEBUFFERSPROC glDeleteBuffers;
+extern PFNGLACTIVETEXTUREPROC glActiveTexture;
 
 void AGL_bind_openGL();
